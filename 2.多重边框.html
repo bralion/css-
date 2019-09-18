@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.多重边框</title>
+</head>
+<body>
+<h1 class="title">目标：实现目标元素的多重边框效果</h1>
+实验框：
+<div class="experiment-contanier">
+    <div class="target-old">
+        <div class="old-way">
+        
+        </div>
+     
+        <pre class="code">
+        border-width:10px;
+        border-style: dashed;
+        border-image: url("./static/sucai1.jpg") 14 14 14 14 round;
+        </pre>
+        border-image实现--这里的图片内容不是多层的效果 <br/>
+        <span class="warning">注意：1.border-color和border-image会相互覆盖</span>
+    
+    </div>
+    <div class="target-new">
+        <div class="new-way"></div>
+        <pre class="code">
+            
+            
+            box-shadow: 0 0 0 10px red,0 0 0 20px green,0 0 0 30px blue;
+        </pre>
+        <span class="warning">注意：1.shadow是层层叠加的  可以看到 宽度10px 20px 30px </span>
+    </div>
+  
+
+</div>
+<div class="result">
+    
+    结论：<br/>
+    <pre class="result-content">
+    1.border-image语法：border-image: source slice width outset repeat|initial|inherit;
+    border-image-source	用于指定要用于绘制边框的图像的地址
+    border-image-slice	图像边界向内偏移
+    border-image-width	图像边界的宽度
+    border-image-outset	用于指定在边框外部绘制 border-image-area 的量
+    border-image-repeat	用于设置图像边界是否应重复（repeat）、拉伸（stretch）或铺满（round）
+    </pre>
+
+
+</div>
+<style>
+    /*页面样式*/
+    *{
+        box-sizing: border-box;
+    }
+    body {
+        padding: 20px 50px;
+    }
+    
+    /*实验框*/
+    .experiment-contanier {
+        height: 600px;
+        width:100%;
+        background-color: #ffffff;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result {
+        margin-top: 50px;
+    }
+    
+    .result-content{
+        font-size:14px;
+        
+    }
+    
+    .code{
+        color:#7EAEF1;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .warning{
+        font-size:12px;
+        color:#FF8785;
+    }
+    
+    .target-old {
+        width: 49%;
+        height: 100%;
+        margin-right: 1%;
+        vertical-align:top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+        
+    }
+    
+    .target-new {
+        width:49%;
+        height: 100%;
+        float: right;
+        vertical-align:top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+    }
+    
+    /*验证的样式*/
+    
+    .old-way{
+        width:200px;
+        height:200px;
+        margin-left: 20px;
+        margin-top: 20px;
+        border-width:10px;
+        border-style: dashed;
+        border-image: url("./static/sucai1.jpg") 14 14 14 14 round;
+        background-color: white;
+    }
+    .new-way{
+        width:200px;
+        height:200px;
+        margin-left: 20px;
+        margin-top: 20px;
+        background-color: white;
+        box-shadow: 0 0 0 10px red,0 0 0 20px green,0 0 0 30px blue;
+    }
+</style>
+</body>
+</html>
