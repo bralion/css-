@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1.半透明的边框</title>
+</head>
+<body>
+<h1 class="title">目标：为一个容器设置一层白色的背景和一道半透明的白色边框</h1>
+实验框：
+<div class="experiment-contanier">
+    
+    
+    <div class="target-old">我是实验目标 未加上background-clip</div>
+    <div class="target-new">我是实验目标 加上<span class="red">background-clip:padding-box;</span></div>
+    
+    
+</div>
+<div class="result">
+    结论：这个属性的初始值是 border-box   在盒模型下 背景颜色或背景图片包含在边框之下  边框如果是透明的，会露出下面的背景，
+    在这个例子中我们想要的是一个半透明的边框，而不需要受背景影响。
+
+</div>
+<style>
+    body {
+        padding: 50px;
+    }
+    
+    /*实验框*/
+    .experiment-contanier {
+        border: 1px solid rebeccapurple;
+        height: 600px;
+        background-color: #709599;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result{
+        margin-top:50px;
+    }
+    
+    .red{
+        color:red;
+    }
+    
+    .target-old {
+        width:300px;
+        height:200px;
+        /*background-color: red;*/
+        background-color: #ffffff;
+        border:5px solid rgba(255,255,255,0.5);
+    }
+    
+    .target-new {
+        width:300px;
+        height:200px;
+        background-color: #ffffff;
+        border:5px solid rgba(255,255,255,0.5);
+        background-clip:padding-box;
+    }
+</style>
+</body>
+</html>
