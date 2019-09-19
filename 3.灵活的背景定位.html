@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.灵活的背景定位</title>
+</head>
+<body>
+<h1 class="title">目标：希望针对某个容器的某个角做背景图片的偏移定位</h1>
+实验框：
+<div class="experiment-contanier">
+    <div class="target-old">
+        <div class="old-way">
+        
+        </div>
+        
+        <pre class="code">
+            /*bottom和right是回退机制   对于不支持background-position的浏览器*/
+            background: url("./static/pic1.png") no-repeat bottom right;
+            background-color: #ffffff;
+            background-size: 52px 40px ;
+            padding:10px;
+            background-position: right 10px bottom 10px;
+        </pre>
+        常规的实现方式：background-position <br/>
+        <span class="warning">注意：1.background-position是padding-box盒模型为边界的   是以padding的左上角为起点的 不会随着padding的变大而改变</span>
+    
+    </div>
+    <div class="target-new">
+        <div class="new-way"></div>
+        <pre class="code">
+        padding:10px;
+        background: url("./static/pic1.png") no-repeat bottom right;
+        background-color: #ffffff;
+        background-size: 52px 40px ;
+        background-origin: content-box ;
+        </pre>
+        通过上面的方式实现了和右边的同样的效果  但是这种方式如果padding改变 背景自动改变位置，而第一种方式需要改三个地方，并且保持一致。<br/>
+        <span class="warning">注意：1.background:  会覆盖掉其他单独属性。所以一般把简写样式写在最前面，本例中如果交换background和 background-origin顺序则不会生效 </span>
+    </div>
+
+
+</div>
+<div class="result">
+    
+    结论和扩展：<br/>
+    <img src="./static/box.png" alt="">
+    <pre class="result-content">
+   
+    </pre>
+
+
+</div>
+<style>
+    /*页面样式*/
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 20px 50px;
+    }
+    
+    /*实验框*/
+    .experiment-contanier {
+        height: 600px;
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result {
+        margin-top: 50px;
+    }
+    
+    .result-content {
+        font-size: 14px;
+        
+    }
+    
+    .code {
+        color: #7EAEF1;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .warning {
+        font-size: 12px;
+        color: #FF8785;
+    }
+    
+    .target-old {
+        width: 49%;
+        height: 100%;
+        margin-right: 1%;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+        
+    }
+    
+    .target-new {
+        width: 49%;
+        height: 100%;
+        float: right;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+    }
+    
+    /*验证的样式*/
+    
+    .old-way {
+        width: 200px;
+        height: 200px;
+        margin-left: 20px;
+        margin-top: 20px;
+        /*回退方案*/
+        background: url("./static/pic1.png") no-repeat bottom right;
+        background-color: #ffffff;
+        background-size: 52px 40px ;
+        padding:10px;
+        background-position: right 10px bottom 10px;
+    }
+    
+    .new-way {
+        width: 200px;
+        height: 200px;
+        margin-left: 20px;
+        margin-top: 20px;
+        padding:10px;
+        background: url("./static/pic1.png") no-repeat bottom right;
+        background-color: #ffffff;
+        background-size: 52px 40px ;
+        background-origin: content-box ;
+    }
+
+</style>
+</body>
+</html>
