@@ -30,7 +30,16 @@
             box-shadow: 0 0 0 10px red,0 0 0 20px green,0 0 0 30px blue;
         </pre>
         <span class="warning">注意：1.shadow是层层叠加的  可以看到 宽度10px 20px 30px </span>
+        <div class="new-way1">
+            <pre class="code">
+                background-color:white;
+                border: 10px solid darkgreen;
+                outline: 5px solid blue;
+            </pre>
+        </div>
+        outline方案只适用于两层边框
     </div>
+    
   
 
 </div>
@@ -134,6 +143,14 @@
         margin-top: 20px;
         background-color: white;
         box-shadow: 0 0 0 10px red,0 0 0 20px green,0 0 0 30px blue;
+    }
+    .new-way1{
+        width:100px;
+        height:100px;
+        margin-top: 20px;
+        background-color:white;
+        border: 10px solid darkgreen;
+        outline: 5px solid blue;
     }
 </style>
 </body>
