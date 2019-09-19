@@ -37,6 +37,18 @@
         通过上面的方式实现了和右边的同样的效果  但是这种方式如果padding改变 背景自动改变位置，而第一种方式需要改三个地方，并且保持一致。<br/>
         <span class="warning">注意：1.background:  会覆盖掉其他单独属性。所以一般把简写样式写在最前面，本例中如果交换background和 background-origin顺序则不会生效 </span>
     </div>
+    <div class="target-new">
+        <div class="new-way1"></div>
+        <pre class="code">
+       padding:10px;
+        background: url("./static/pic1.png") no-repeat bottom right;
+        background-color: #ffffff;
+        background-size: 52px 40px ;
+        background-position: calc(100% - 10px) calc(100% - 10px);
+        </pre>
+        通过calc的方式实现了同样的效果  但是这种方式如果padding改变 背景自动改变位置，而第一种方式需要改三个地方，并且保持一致。<br/>
+        <span class="warning">注意：1.calc中的表达式加号和减号前后都需要一个空格 </span>
+    </div>
 
 
 </div>
@@ -143,6 +155,17 @@
         background-color: #ffffff;
         background-size: 52px 40px ;
         background-origin: content-box ;
+    }
+    .new-way1 {
+        width: 200px;
+        height: 200px;
+        margin-left: 20px;
+        margin-top: 20px;
+        padding:10px;
+        background: url("./static/pic1.png") no-repeat bottom right;
+        background-color: #ffffff;
+        background-size: 52px 40px ;
+        background-position: calc(100% - 10px) calc(100% - 10px);
     }
 
 </style>
