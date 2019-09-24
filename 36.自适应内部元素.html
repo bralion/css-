@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>36.自适应内部元素</title>
+</head>
+<body>
+<h1 class="title">目标：内部div的宽度一般是父元素的宽度，我们希望红框的宽度和图片的宽度一致</h1>
+实验框：
+<div class="experiment-contanier">
+    <div class="target-old">
+        <div class="old-way">
+            <p>delete from the query string object. searchparams.entries() Returns an ES6 iterator over each of the name-value pairs in the query string</p>
+            
+            <figure class="old-way-inner">
+                <img src="./static/pic1.png" width="200" alt="图片1">
+                <figcaption >
+                    delete from the query string object. searchparams.entries()
+                    Returns an ES6 iterator over each of the name-value pairs in the query string
+                </figcaption>
+            </figure>
+            
+            <p >delete from the query string object. searchparams.entries() Returns an ES6 iterator over each of the name-value pairs in the query string</p>
+        </div>
+        
+        <pre class="code">
+        border: 1px solid red;
+        max-width:min-content;
+        </pre>
+        border-image实现--这里的图片内容不是多层的效果 <br/>
+    </div>
+    <div class="target-new">
+        <div class="new-way">
+            相关拓展 <a href="https://www.zhangxinxu.com/wordpress/2016/05/css3-width-max-contnet-min-content-fit-content/"> 张鑫旭的css3 max-content min-content fit-content</a>
+        </div>
+        <pre class="code">
+
+        </pre>
+    </div>
+
+
+</div>
+<div class="result">
+    
+    结论和扩展：<br/>
+    <pre class="result-content">
+      1.宽度表示的并不是内部那个宽度小就是那个宽度，而是，采用内部元素最小宽度值最大的那个元素的宽度作为最终容器的宽度。
+    </pre>
+
+</div>
+
+<div style="width:1000px;height:300px;border:1px solid red;">
+    <div style="border: 1px solid red; float: left;">
+        <img src="./static/pic1.png" width="300" height="200"  alt="">
+        <p style="float: left;">
+            delete from the query string object. searchparams.entries() Returns an ES6 iterator over each of the name-value pairs in the query string
+        </p>
+    </div>
+</div>
+<style>
+    /*页面样式*/
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 20px 50px;
+    }
+    
+    /*实验框*/
+    .experiment-contanier {
+        height: 600px;
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result {
+        margin-top: 50px;
+    }
+    
+    .result-content {
+        font-size: 14px;
+        
+    }
+    
+    .code {
+        color: #7EAEF1;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .warning {
+        font-size: 12px;
+        color: #FF8785;
+    }
+    
+    .target-old {
+        width: 49%;
+        height: 100%;
+        margin-right: 1%;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+        
+    }
+    
+    .target-new {
+        width: 49%;
+        height: 100%;
+        float: right;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+    }
+    
+    /*验证的样式*/
+    
+    .old-way {
+        border:1px solid #7EAEF1;
+    }
+
+    .old-way-inner{
+        border: 1px solid red;
+        width:min-content;
+    }
+ 
+    
+    .new-way {
+
+    }
+
+</style>
+</body>
+</html>
