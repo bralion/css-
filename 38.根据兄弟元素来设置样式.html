@@ -92,9 +92,11 @@
 </div>
 <div class="result">
     
-    结论和扩展：<br/>
+    结论和扩展：思考当兄弟元素是3-6项时选中所有项如何去做？<br/>
     <pre class="result-content">
-   
+        li:first-child:nth-last-child(n+3):nth-last-child(-n+6)~li{
+        /*当兄弟元素是3-6项时选中所有项*/
+        }
     </pre>
 
 
