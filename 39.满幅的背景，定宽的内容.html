@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>39.满幅的背景，内部是定宽的内容</title>
+</head>
+<body>
+<h1 class="title">目标： 做出旅游网站的风格，背景是全幅的，内部的文字内容和高度都不是固定的,宽度可能是固定的。</h1>
+实验框：
+<div class="experiment-contanier">
+    <div class="target-old">
+        <div class="old-way">
+            <div class="outer">
+                <div class="inner">
+                    我是定宽的内容
+                </div>
+            </div>
+        </div>
+        
+        <pre class="code">
+            html:
+              div class="outer"
+                div class="inner"
+                    我是定宽的内容
+                /div
+              /div
+            css:
+              .outer{
+                width:300px;
+                height:300px;
+                background: url("./static/sucai1.jpg") no-repeat;
+                background-size: 100% 100%;
+                position: relative;
+              }
+              .inner{
+                /*设置块级元素水平居中，竖直居中*/
+                border: 1px solid green;
+                margin: 0 auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+              }
+        </pre>
+        <!--常规的做法是采用两层，外层用于背景，内层用于定宽的文字 <br/>-->
+        <!--<span class="warning">注意：1.</span>-->
+    
+    </div>
+    <div class="target-new">
+        <div class="new-way">
+            <div class="inner1">
+                我是定宽的内容
+            </div>
+        
+        </div>
+        这里我们采用一层解决该问题
+        <pre class="code">
+          
+            .new-way {
+                width: 300px;
+                height: 300px;
+                margin-left: 20px;
+                margin-top: 20px;
+            }
+            .inner1{
+                height:200px;
+                max-width:200px;
+                padding:20px calc(50% - 100px);
+                background: url("./static/sucai1.jpg") no-repeat;
+                background-size: 100% 100%;
+            }
+        </pre>
+        <span class="warning">注意：1. 这里用了一层解决该问题。但是只适用于宽度固定的情况</span>
+    </div>
+
+
+</div>
+<div class="result">
+    
+    结论和扩展：<br/>
+    <pre class="result-content">
+   
+    </pre>
+
+
+</div>
+<style>
+    /*页面样式*/
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 20px 50px;
+    }
+    
+    /*实验框*/
+    .experiment-contanier {
+        height: 600px;
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result {
+        margin-top: 50px;
+    }
+    
+    .result-content {
+        font-size: 14px;
+        
+    }
+    
+    .code {
+        color: #7EAEF1;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .warning {
+        font-size: 12px;
+        color: #FF8785;
+    }
+    
+    .target-old {
+        width: 49%;
+        height: 100%;
+        margin-right: 1%;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+        
+    }
+    
+    .target-new {
+        width: 49%;
+        height: 100%;
+        float: right;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+    }
+    
+    /*验证的样式*/
+    
+    .old-way {
+        width: 200px;
+        height: 200px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    .outer{
+        width:200px;
+        height:200px;
+        background: url("./static/sucai1.jpg") no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+    }
+    .inner{
+        /*设置块级元素水平居中，竖直居中*/
+        border: 1px solid green;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    
+  
+    
+    .new-way {
+        width: 300px;
+        height: 300px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .inner1{
+        height:200px;
+        max-width:200px;
+        padding:20px calc(50% - 100px);
+        background: url("./static/sucai1.jpg") no-repeat;
+        background-size: 100% 100%;
+    }
+
+</style>
+</body>
+</html>
