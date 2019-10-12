@@ -10,29 +10,60 @@
 <div class="experiment-contanier">
     <div class="target-old">
         <div class="old-way">
-        
+            <div class="main">
+                <h1> Am I center yet ?</h1>
+                <p>Center me plase!</p>
+            </div>
         </div>
         
         <pre class="code">
-       
+            /*定宽  定高*/
+           .main{
+                border: 1px solid red;
+                position: absolute;
+                top: 50%;
+                left:50%;
+                margin-left:-9em ; /*18/2=9*/
+                margin-top:-5em ; /*6/2=3*/
+                height:10em;
+                width:18em;
+            }
         </pre>
-        <span class="warning">注意：1.</span>
-    
+        <span class="warning">注意：1.这个方法虽然能够解决垂直居中的问题，但是有时候不能采用绝对定位。见右边的方法。</span>
     </div>
     <div class="target-new">
-        <div class="new-way"></div>
+        <div class="new-way">
+            <div class="main1">
+                <h1> Am I center yet ?</h1>
+                <p>Center me plase!</p>
+            </div>
+        </div>
         <pre class="code">
-
+          .main1{
+                width:300px;
+                height:150px;
+                background: #7EAEF1;
+            }
+            
+            .new-way {
+                width: 600px;
+                height: 300px;
+                margin-left: 20px;
+                margin-top: 20px;
+                background: #ffffff;
+                color:#000000;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+            }
         </pre>
-        <span class="warning">注意：1. </span>
     </div>
   
 
 </div>
 <div class="result">
-    结论和扩展：<br/>
     <pre class="result-content">
-   
+    
     </pre>
 
 
@@ -54,6 +85,7 @@
         background-color: #ffffff;
         position: relative;
         margin-top: 15px;
+        vertical-align: middle;
     }
     
     .title {
@@ -97,9 +129,8 @@
     .target-new {
         width: 49%;
         height: 100%;
-        float: right;
-        vertical-align: top;
         display: inline-block;
+        vertical-align: top;
         background-color: #555555;
         color: #ffffff;
         padding: 20px;
@@ -108,17 +139,40 @@
     /*验证的样式*/
     
     .old-way {
-        width: 200px;
-        height: 200px;
+        width: 400px;
+        height: 400px;
         margin-left: 20px;
         margin-top: 20px;
+        background: #ffffff;
+        color:#000000;
+        position: relative;
+    }
+    .main{
+        border: 1px solid red;
+        position: absolute;
+        top: 50%;
+        left:50%;
+        margin-left:-9em ; /*18/2=9*/
+        margin-top:-5em ; /*6/2=3*/
+        height:10em;
+        width:18em;
+    }
+    .main1{
+        width:300px;
+        height:150px;
+        background: #7EAEF1;
     }
     
     .new-way {
-        width: 200px;
-        height: 200px;
+        width: 600px;
+        height: 300px;
         margin-left: 20px;
         margin-top: 20px;
+        background: #ffffff;
+        color:#000000;
+        display:flex;
+        align-items: center;
+        justify-content: center;
     }
 
 </style>
