@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.</title>
+</head>
+<body>
+<header style="height:70px;">
+
+</header>
+<main>
+    <h1 class="title">目标：实现紧贴底部的页脚--方法1</h1>
+    <p>有时候会遇到需要页脚紧贴底部的情况，并且在各个高度的情况下依然成功。之前出现过必须F11，才能正常显示的问题。</p>
+    实验框：
+    
+    <div class="result">
+        <pre class="result-content">
+            代码如下：
+                body{
+                    min-height:100vh;
+                }
+                header{
+                    height:70px;
+                }
+                main{
+                    min-height:calc( 100vh - 150px)
+                }
+                footer{
+                    background: black;
+                    color: #ffffff;
+                    padding:1em;
+                    height:80px;
+                }
+        </pre>
+        <p>结论：采用vh进行如上配置后，在任何高度的页面可以实现footer一直在底部，main部分可以伸缩.</p>
+    
+    </div>
+</main>
+<footer>
+    <p style="text-align: center;">思创科技有限责任公司@版权所有</p>
+    <p style="text-align: center">
+        联系电话：028-8888888
+        <span>  </span>
+        公司ceo：ycl
+    </p>
+</footer>
+<style>
+    /*页面样式*/
+    * {
+        box-sizing: border-box;
+        padding:0;
+        margin: 0;
+    }
+
+    /*实验框*/
+    .experiment-contanier {
+        height: 600px;
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result {
+        margin-top: 50px;
+    }
+    
+    .result-content {
+        font-size: 14px;
+        
+    }
+    
+    body{
+        min-height:100vh;
+    }
+    header{
+        height:70px;
+    }
+    main{
+        min-height:calc( 100vh - 150px)
+    }
+    footer{
+        background: black;
+        color: #ffffff;
+        padding:1em;
+        height:80px;
+    }
+
+</style>
+</body>
+</html>
