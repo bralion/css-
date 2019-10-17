@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21.插入换行</title>
+</head>
+<body>
+<h1 class="title">目标：实现一行一行的键值对样式</h1>
+实验框：
+<div class="experiment-contanier">
+    <div class="target-old">
+        <div class="old-way">
+            案例1：纯dl>dt+dd  完成效果   dd添加margin：0；font-weight：blod;
+            <dl class="case1">
+                <dt>Name:</dt>
+                <dd>Lea Verou</dd>
+                <dt>Email:</dt>
+                <dd>LeaVerou@qq.com</dd>
+                <dt>Location:</dt>
+                <dd>China</dd>
+            </dl>
+           案例2： dt dd 样式  inline   dd添加margin：0；font-weight：blod; dd后面添加  br换行标签。
+            <dl class="case2">
+                <dt>Name:</dt>
+                <dd >Lea Verou</dd>
+                <br>
+                <dt>Email:</dt>
+                <dd>LeaVerou@qq.com</dd>
+                <br>
+                <dt>Location:</dt>
+                <dd>China</dd>
+            </dl>
+        </div>
+        
+        <pre class="code">
+       
+        </pre>
+        页面的标签采用dl dt dd 实现键值对。但是由于dd和dt标签是块级元素 我们想要dt和dd在同行显示。常规的做法是添加样式inline。并且在换行是使用 br 标签。如案例2
+        那样可能会造成一些问题，这里想用不改变元素块级属性的情况下完成。
+        <br/>
+      
+    
+    </div>
+    <div class="target-new">
+        <div class="new-way">
+            案例3： dd添加margin：0；font-weight：blod;   dd，dt 设置inline-block； dd后面添加 ::after{content:'\A';white-space: pre;}
+            <dl class="case3">
+                <dt>Name:</dt>
+                <dd >Lea Verou</dd>
+                <dt>Email:</dt>
+                <dd>LeaVerou@qq.com</dd>
+                <dt>Location:</dt>
+                <dd>China</dd>
+            </dl>
+            案例4： 完美解决 案例3后面有多个dd的情况  code部分参见下面
+            <dl class="case4">
+                <dt>Name:</dt>
+                <dd >Lea Verou</dd>
+                <dt>Email:</dt>
+                <dd>LeaVerou@qq.com</dd>
+                <dd>LeaVerou@qq.com</dd>
+                <dt>Location:</dt>
+                <dd>China</dd>
+            </dl>
+        </div>
+        <pre class="code">
+                .case4 > dd,dt{
+                    display:inline;
+                    color:yellow;
+                }
+                
+                .case4 > dd + dt::before{
+                     content:'\A';
+                     white-space: pre;
+                }
+                .case4 > dd + dd::before{
+                     content:',';
+                     white-space: normal;
+                }
+        
+        </pre>
+        <span class="warning">注意：1.伪类在内部的后面添加换行符<br> 2.white-space: 默认nowrap表示规定段落内的文本不换行,设置为pre，类似于pre标签。这里的作用<br>
+            3.\000A  简写为\A 表示为  换行符；
+        </span>
+    </div>
+
+
+</div>
+<div class="result">
+    
+    结论和扩展：<br/>
+    <pre class="result-content">
+   
+    </pre>
+
+
+</div>
+<style>
+    /*页面样式*/
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 20px 50px;
+    }
+    
+    /*实验框*/
+    .experiment-contanier {
+        height: 600px;
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result {
+        margin-top: 50px;
+    }
+    
+    .result-content {
+        font-size: 14px;
+        
+    }
+    
+    .code {
+        color: #7EAEF1;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .warning {
+        font-size: 12px;
+        color: #FF8785;
+    }
+    
+    .target-old {
+        width: 49%;
+        height: 100%;
+        margin-right: 1%;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+        
+    }
+    
+    .target-new {
+        width: 49%;
+        height: 100%;
+        float: right;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+    }
+    
+    /*验证的样式*/
+    
+    .old-way {
+        width: 400px;
+        height: 400px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    dd{
+        margin:0;
+        font-weight: bold;
+    }
+    .case2 > dd,dt{
+        display:inline;
+        color:yellow;
+    }
+    .case3 > dd,dt{
+        display:inline;
+        color:yellow;
+    }
+     .case3 > dd::after{
+         content:'\A';
+         white-space: pre;
+    }
+
+    .case4 > dd,dt{
+        display:inline;
+        color:yellow;
+    }
+    
+    .case4 > dd + dt::before{
+         content:'\A';
+         white-space: pre;
+    }
+    .case4 > dd + dd::before{
+         content:',';
+         white-space: normal;
+    }
+    
+    .case1{
+        color:yellow;
+    }
+    
+    .new-way {
+        width: 400px;
+        height: 320px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+</style>
+</body>
+</html>
