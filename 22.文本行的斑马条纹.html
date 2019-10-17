@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.</title>
+</head>
+<body>
+<h1 class="title">目标：实现文本行的斑马条纹</h1>
+需求：有时候表格我们需要隔行显示不同的背景颜色。同样文本可能也有类似的需求。这样可以保证用户的视野在一长条的水平空间内。
+<div class="experiment-contanier">
+    <div class="target-old">
+        <div class="old-way">
+        
+        </div>
+        
+        <pre class="code">
+       
+        </pre>
+        border-image实现--这里的图片内容不是多层的效果 <br/>
+        <span class="warning">注意：1.</span>
+    
+    </div>
+    <div class="target-new">
+        <div class="new-way"></div>
+        <pre class="code">
+
+        </pre>
+        <span class="warning">注意：1. </span>
+    </div>
+
+
+</div>
+<div class="result">
+    
+    结论和扩展：<br/>
+    <pre class="result-content">
+   
+    </pre>
+
+
+</div>
+<style>
+    /*页面样式*/
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 20px 50px;
+    }
+    
+    /*实验框*/
+    .experiment-contanier {
+        height: 600px;
+        width: 100%;
+        background-color: #ffffff;
+        position: relative;
+        margin-top: 15px;
+    }
+    
+    .title {
+        margin-bottom: 30px;
+    }
+    
+    .result {
+        margin-top: 50px;
+    }
+    
+    .result-content {
+        font-size: 14px;
+        
+    }
+    
+    .code {
+        color: #7EAEF1;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .warning {
+        font-size: 12px;
+        color: #FF8785;
+    }
+    
+    .target-old {
+        width: 49%;
+        height: 100%;
+        margin-right: 1%;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+        
+    }
+    
+    .target-new {
+        width: 49%;
+        height: 100%;
+        float: right;
+        vertical-align: top;
+        display: inline-block;
+        background-color: #555555;
+        color: #ffffff;
+        padding: 20px;
+    }
+    
+    /*验证的样式*/
+    
+    .old-way {
+        width: 200px;
+        height: 200px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    
+    .new-way {
+        width: 200px;
+        height: 200px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+</style>
+</body>
+</html>
