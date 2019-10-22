@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两列自适应布局</title>
+</head>
+<body>
+<div class="aside"></div>
+<div class="main">
+    <pre style="color:green;">
+        布局的特点：一列由内容撑开，另外一列撑满剩余宽度的布局<br><br>
+            方案1：兼容各种分辨率设备。
+        
+           .aside{
+                width:200px;
+                float:left;
+                height:100%;
+            }
+            .main{
+                margin-left: 200px;
+                height:100%;
+            }
+            
+            方案2 flex布局
+    </pre>
+</div>
+</body>
+<link rel="stylesheet" href="./reset.css">
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    html{
+        height:100%;
+    }
+    body{
+        height:100%;
+    }
+    .aside{
+        width:200px;
+        float:left;
+        height:100%;
+        border: 1px solid red;
+    }
+    .main{
+        margin-left: 200px;
+        height:100%;
+        border: 1px solid green;
+    }
+
+</style>
+</html>
