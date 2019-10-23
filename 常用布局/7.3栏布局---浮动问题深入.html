@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Layout</title>
+    <style media="screen">
+        html * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<!--浮动布局  -->
+<section class="layout float">
+    
+    <h1>三栏布局</h1>
+    <article class="contanier">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="center">
+            <h2>浮动解决三列布局</h2>
+            问题？为什么将right的dom元素移动到center的下面后  该布局会失效？
+        </div>
+    </article>
+</section>
+</body>
+<style>
+    .left{
+        float: left;
+        height:100px;
+        width:100px;
+        background: green;
+    }
+    .center{
+        height:100px;
+        background: yellow;
+    }
+    .right{
+        float: right;
+        height:100px;
+        width:100px;
+        background: blue;
+    }
+</style>
+</html>
